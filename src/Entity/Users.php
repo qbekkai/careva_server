@@ -34,7 +34,7 @@ class Users implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true, nullable=true)
      * @Groups({"user:read", "user:write"})
      */
     private $email;
@@ -87,6 +87,7 @@ class Users implements UserInterface
 
     public function __construct()
     {
+        $this->roles = ["ROLE_USER"];
         $this->registration_at = new \DateTime();
         $this->last_login = new \DateTime();
     }

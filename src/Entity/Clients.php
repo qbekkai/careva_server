@@ -29,7 +29,7 @@ class Clients
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string", length=200, unique=true)
      * @Groups({
      *      "color:read",
      *      "event:read",

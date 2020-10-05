@@ -29,7 +29,7 @@ class ProjectTypes
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=150, unique=true)
      * @Groups({
      *      "color:read",
      *      "event:read",
