@@ -47,9 +47,9 @@ security:
     access_control:
         - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] } # Allows accessing the Swagger UI
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY, methods: [POST, PUT, DELETE, PATCH] } # Allows accessing the Swagger UI
-        # - { path: ^/api/docs, roles: IS_AUTHENTICATED_ANONYMOUSLY } # Allows accessing the Swagger UI
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        
         # - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
