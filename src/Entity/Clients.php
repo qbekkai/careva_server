@@ -25,6 +25,9 @@ class Clients
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     *  @Groups({
+     *      "client:read"
+     * })
      */
     private $id;
 
