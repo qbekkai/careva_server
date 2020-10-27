@@ -121,7 +121,6 @@ class Projects
 
     /**
      * @ORM\ManyToOne(targetEntity=EventTypes::class, inversedBy="projects")
-     * @ORM\JoinColumn(nullable=false)
      * @Groups({
      *      "color:read",
      *      "event:read",

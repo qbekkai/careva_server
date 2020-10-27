@@ -37,7 +37,7 @@ final class Version20201005125947 extends AbstractMigration
         $this->addSql('ALTER TABLE projects ADD CONSTRAINT FK_5C93B3A471F7E88B FOREIGN KEY (event_id) REFERENCES events (id)');
         $this->addSql('ALTER TABLE projects ADD CONSTRAINT FK_5C93B3A47ADA1FB5 FOREIGN KEY (color_id) REFERENCES colors (id)');
         $this->addSql('INSERT INTO sites(id, name) VALUE (NULL, "limbasse"),(NULL, "careva")');
-        $this->addSql('INSERT INTO project_types(id, name) VALUE (NULL,"exterieurs"),(NULL, "interieurs"),(NULL, "design_objets"),(NULL, "evenementiel"),(NULL, "stands/expos")');
+        $this->addSql('INSERT INTO project_types(id, name) VALUE (NULL,"exterieurs"),(NULL, "interieurs"),(NULL, "design_objet"),(NULL, "evenementiel"),(NULL, "stands/expos")');
     }
 
     public function down(Schema $schema) : void

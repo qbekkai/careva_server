@@ -25,6 +25,9 @@ class Sites
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({
+     *      "site:read"
+     * })
      */
     private $id;
 
