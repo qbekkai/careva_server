@@ -9,6 +9,10 @@ import { title } from "process";
 // import InitTable from "./clients.mjs";
 
 let final_table = []
+const url_api = {
+    prod: 'https://careva-api.herokuapp.com',
+    dev: '`http://127.0.0.1:8000'
+}
 
 InitTable.forEach(e => {
     if (final_table.indexOf(e) == -1)
@@ -31,7 +35,7 @@ final_table.forEach(e => {
     console.log(body);
 
 
-    fetch(`http://127.0.0.1:8000/api/${table}`, {
+    fetch(`${url_api.dev}/api/${table}`, {
         method: 'POST',
         headers: head,
         body: JSON.stringify(body)

@@ -25,6 +25,9 @@ class EventTypes
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({
+     *      "eventType:read"
+     * })
      */
     private $id;
 
