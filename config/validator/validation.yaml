@@ -1,0 +1,139 @@
+App\Entity\Projects:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: idProject
+        message: Le projet existe déjà.
+  properties:
+    publishDate:
+      - DateTime:
+          message: Ça n'est pas une date valide.
+    idProject:
+      - Type:
+          type: integer
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\Clients:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: name
+        message: "Le client existe déjà."
+  properties:
+    name:
+      - NotNull:
+          message: Le nom du client ne peut pas être 'null'.
+      - NotBlank:
+          message: Le nom du client n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+    thumb:
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\Events:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: name
+        message: L'event existe déjà.
+  properties:
+    name:
+      - NotNull:
+          message: L'event ne peut pas être 'null'.
+      - NotBlank:
+          message: L'event n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\EventTypes:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: name
+        message: L'event type existe déjà.
+  properties:
+    name:
+      - NotNull:
+          message: L'event type ne peut pas être 'null'.
+      - NotBlank:
+          message: L'event type n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\Colors:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: name
+        message: La couleur existe déjà.
+  properties:
+    name:
+      - NotNull:
+          message: La couleur ne peut pas être 'null'.
+      - NotBlank:
+          message: La couleur n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\Sites:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: name
+        message: Le site existe déjà.
+  properties:
+    name:
+      - NotNull:
+          message: Le site ne peut pas être 'null'.
+      - NotBlank:
+          message: Le site n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\ProjectTypes:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: name
+        message: Le project type existe déjà.
+  properties:
+    name:
+      - NotNull:
+          message: Le project type ne peut pas être 'null'.
+      - NotBlank:
+          message: Le project type n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+
+App\Entity\Users:
+  constraints:
+    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+        fields: [email, username]
+        message: Le project type existe déjà.
+  properties:
+    email:
+      - Email:
+          message: la valeur \"{{ value }}\" n'est pas un email valide.
+    username:
+      - NotNull:
+          message: Le username ne peut pas être 'null'.
+      - NotBlank:
+          message: Le username n'est pas renseigné.
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+    fistname:
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+    lastname:
+      - Type:
+          type: string
+          message: La valeur {{ value }} n'est pas de type {{ type }}.
+    registration_at:
+      - DateTime:
+          message: Ça n'est pas une date.
+    last_login:
+      - DateTime:
+          message: Ça n'est pas une date.
