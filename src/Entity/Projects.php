@@ -23,6 +23,9 @@ class Projects
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({
+     *      "project:read"
+     * })
      */
     private $id;
 
@@ -106,7 +109,7 @@ class Projects
 
     /**
      * @ORM\ManyToOne(targetEntity=ProjectTypes::class, inversedBy="projects")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      * @Groups({
      *      "color:read",
      *      "event:read",
@@ -160,6 +163,20 @@ class Projects
      * })
      */
     private $color;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true, unique=true)
+     * @Groups({
+     *      "event:read",
+     *      "eventType:read",
+     *      "projectType:read",
+     *      "site:read",
+     *      "client:read",
+     *      "project:read",
+     *      "project:write"
+     * })
+     */
+    private $idProject;
 
     public function __construct()
     {
@@ -290,6 +307,18 @@ class Projects
     public function setColor(?Colors $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getIdProject(): ?int
+    {
+        return $this->idProject;
+    }
+
+    public function setIdProject(?int $idProject): self
+    {
+        $this->idProject = $idProject;
 
         return $this;
     }
