@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201005125947 extends AbstractMigration
+final class Version20201130175043 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -24,7 +24,7 @@ final class Version20201005125947 extends AbstractMigration
 
         $this->addSql('CREATE TABLE sites (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(100) NOT NULL, UNIQUE INDEX UNIQ_BC00AA635E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE colors (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_C2BEC39F5E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE projects (id INT AUTO_INCREMENT NOT NULL, site_id INT NOT NULL, client_id INT NOT NULL, project_type_id INT NOT NULL, event_type_id INT NOT NULL, event_id INT DEFAULT NULL, color_id INT DEFAULT NULL, publish_date DATETIME NOT NULL, visibility TINYINT(1) NOT NULL, year INT NOT NULL, medias JSON NOT NULL, INDEX IDX_5C93B3A4F6BD1646 (site_id), INDEX IDX_5C93B3A419EB6921 (client_id), INDEX IDX_5C93B3A4535280F6 (project_type_id), INDEX IDX_5C93B3A4401B253C (event_type_id), INDEX IDX_5C93B3A471F7E88B (event_id), INDEX IDX_5C93B3A47ADA1FB5 (color_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE projects (id INT AUTO_INCREMENT NOT NULL, site_id INT NOT NULL, client_id INT NOT NULL, project_type_id INT DEFAULT NULL, event_type_id INT DEFAULT NULL, event_id INT DEFAULT NULL, color_id INT DEFAULT NULL, id_project INT DEFAULT NULL, publish_date DATETIME NOT NULL, visibility TINYINT(1) NOT NULL, year INT NOT NULL, medias JSON NOT NULL, UNIQUE INDEX UNIQ_5C93B3A4F12E799E (id_project), INDEX IDX_5C93B3A4F6BD1646 (site_id), INDEX IDX_5C93B3A419EB6921 (client_id), INDEX IDX_5C93B3A4535280F6 (project_type_id), INDEX IDX_5C93B3A4401B253C (event_type_id), INDEX IDX_5C93B3A471F7E88B (event_id), INDEX IDX_5C93B3A47ADA1FB5 (color_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE event_types (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(100) NOT NULL, UNIQUE INDEX UNIQ_182B381C5E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE events (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(200) NOT NULL, UNIQUE INDEX UNIQ_5387574A5E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE project_types (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(150) NOT NULL, UNIQUE INDEX UNIQ_4A6580AE5E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
@@ -36,8 +36,6 @@ final class Version20201005125947 extends AbstractMigration
         $this->addSql('ALTER TABLE projects ADD CONSTRAINT FK_5C93B3A4401B253C FOREIGN KEY (event_type_id) REFERENCES event_types (id)');
         $this->addSql('ALTER TABLE projects ADD CONSTRAINT FK_5C93B3A471F7E88B FOREIGN KEY (event_id) REFERENCES events (id)');
         $this->addSql('ALTER TABLE projects ADD CONSTRAINT FK_5C93B3A47ADA1FB5 FOREIGN KEY (color_id) REFERENCES colors (id)');
-        $this->addSql('INSERT INTO sites(id, name) VALUE (NULL, "limbasse"),(NULL, "careva")');
-        $this->addSql('INSERT INTO project_types(id, name) VALUE (NULL,"exterieurs"),(NULL, "interieurs"),(NULL, "design_objet"),(NULL, "evenementiel"),(NULL, "stands/expos")');
     }
 
     public function down(Schema $schema) : void
