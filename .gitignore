@@ -67,5 +67,7 @@
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
 
+/public/DB/
+node_modules/
 .env.local
 .DS_Store
