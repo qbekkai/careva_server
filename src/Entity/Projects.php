@@ -23,6 +23,15 @@ class Projects
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({
+     *      "color:read",
+     *      "event:read",
+     *      "eventType:read",
+     *      "projectType:read",
+     *      "site:read",
+     *      "client:read",
+     *      "project:read"
+     * })
      */
     private $id;
 
