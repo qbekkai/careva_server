@@ -46,9 +46,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/api/users$, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST]  }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] } # Allows accessing the Swagger UI
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY, methods: [POST, PUT, DELETE, PATCH] } # Allows accessing the Swagger UI
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }
