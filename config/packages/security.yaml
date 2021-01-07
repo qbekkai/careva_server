@@ -45,11 +45,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api/users$, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST]  }
+        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] } # Allows accessing the Swagger UI
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY, methods: [POST, PUT, DELETE, PATCH] } # Allows accessing the Swagger UI
-        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
