@@ -15,17 +15,17 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         login:
-            pattern: ^/api/login
+            pattern: ^/login
             stateless: true
             anonymous: true
             json_login:
-                check_path: /api/login
+                check_path: /login
                 username_path: username
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
-            pattern: ^/api/
+            pattern: ^/
             stateless: true
             anonymous: true
             provider: app_user_provider
@@ -45,10 +45,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] } # Allows accessing the Swagger UI
-        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY, methods: [POST, PUT, DELETE, PATCH] } # Allows accessing the Swagger UI
+        - { path: ^/users, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET] } # Allows accessing the Swagger UI
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY, methods: [POST, PUT, DELETE, PATCH] } # Allows accessing the Swagger UI
 
         # - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }
         # - { path: ^/admin, roles: ROLE_ADMIN }
